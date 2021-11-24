@@ -23,3 +23,23 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+Cypress.Commands.add('login_user1', () => {
+    cy.get('.MuiTypography-root > .MuiButtonBase-root').click()
+    cy.get('#Email').type('smitpat2000@gmail.com')
+    cy.get('#next').click()
+    cy.get('#password').type('Smitp@t0013')
+    cy.get('#submit').click()
+})
+
+Cypress.Commands.add('login_user2', () => {
+    cy.get('.MuiTypography-root > .MuiButtonBase-root').click()
+    cy.get('#Email').type('u18co024@coed.svnit.ac.in')
+    cy.get('#next').click()
+    cy.get('#password').type('Smitp@t0013')
+    cy.get('#submit').click()
+})
+
+Cypress.Commands.add('logout', () => {
+    cy.get('.MuiToolbar-root > :nth-child(1) > .MuiButtonBase-root > .MuiIconButton-label > .MuiSvgIcon-root').click()
+    cy.get('.MuiLink-root > .MuiButtonBase-root').click()
+})

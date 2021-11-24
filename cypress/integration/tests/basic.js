@@ -1,23 +1,17 @@
 /// <reference types="cypress" />
 
-describe('Actions', () => {
+describe('Unit Tests', () => {
     beforeEach(() => {
         cy.visit('https://predict-webapp.herokuapp.com/')
     })
 
     it('Home page', () => {
-        cy.visit('https://predict-webapp.herokuapp.com/')
         cy.get(':nth-child(2) > .MuiBox-root > .MuiTypography-root').should('have.text', 'Predict')
     })
 
-    // it('Login Test', () => {
-    //     cy.get('.MuiTypography-root > .MuiButtonBase-root').click()
-    //     cy.get('#Email').type('smitpat2000@gmail.com')
-    //     cy.get('#next').click()
-    //     cy.get('#password').type('Smitp@t0013')
-    //     cy.get('#submit').click()
-    // })
-
+    it('Login Test', () => {
+        // cy.login_user1()
+    })
 
     it('Show My Profile', () => {
         cy.get('.MuiTypography-root > .MuiButtonBase-root').click()
@@ -43,4 +37,12 @@ describe('Actions', () => {
         cy.get('[href="/bets/0"]').click()
     })
 
+    it('Create a Battle', () => {
+        cy.get('.MuiTypography-root > .MuiButtonBase-root').click()
+        cy.get(':nth-child(1) > .MuiPaper-root > .MuiCardActions-root > [title="Create Prediction Battle"]').click()
+        cy.get(':nth-child(1) > .MuiFormControlLabel-root > .MuiButtonBase-root > .MuiIconButton-label > .jss18').click()
+        cy.get('#outlined-size-normal').click().type('10')
+        cy.get('.MuiCardContent-root > .MuiBox-root > .MuiButtonBase-root').click()
+    })
 })
+
